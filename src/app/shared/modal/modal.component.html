@@ -1,0 +1,25 @@
+<ng-template #template>
+    <div class="app-modal">
+        <div class="modal-header" [appModalDraggable]="draggable">
+            <h4 class="modal-title pull-left" style="cursor: text;">{{ title }}</h4>
+            <button *ngIf="this.closeable" type="button" class="close pull-right" aria-label="Close"
+                (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!-- /.modal-header -->
+
+        <div class="modal-body">
+            <ng-content></ng-content>
+        </div>
+        <!-- /.modal-body -->
+
+        <div class="modal-footer" *ngIf="action || cancel">
+            <button *ngIf="cancel" type="button" class="btn btn-link" (click)="cancelWasClicked()">{{ cancel }}</button>
+            <ng-content select=".modal-actions"></ng-content>
+            <button *ngIf="action" type="submit" class="btn btn-primary"
+                (click)="submitWasClicked()">{{ action }}</button>
+        </div>
+        <!-- /.modal-footer -->
+    </div>
+</ng-template>

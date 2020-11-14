@@ -1,24 +1,27 @@
-<table>
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Email</th>
-            <th scope="col">Telefone</th>
-            <th scope="col">Ações</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let contato of contatos">
-            <th scope="row">{{contato.id}}</th>
-            <td>{{contato.nome}}</td>
-            <td>{{contato.email}}</td>
-            <td>{{contato.telefone}}</td>
-            <td>
-            </td>
-        </tr>
-        <div>
+<div class="row row-cols-1 row-cols-3">
+    <div class="col mb-4" *ngFor="let contato of contatos">
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="../../../assets/img/Pâmela.jpg" class="card-img" alt="Imagem de contato {{contato.nome}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome: {{contato.nome}}</h5>
+                        <p class="card-text">Email: {{contato.email}}</p>
+                        <p class="card-text">Telefone: {{contato.telefone}}</p>
+                        <button type="button" routerLink="/contatos/editar/{{contato.id}}" class="btn btn-info "
+                            style="margin-right: 5px">
+                            Editar
+                            <img src="https://img.icons8.com/ios-glyphs/20/000000/edit.png" alt="Imagem de Contato" />
+                        </button>
+                        <button type="button" routerLink="/contatos/remover/{{contato.id}}" class="btn btn-danger ">
+                            Remover
+                            <img src="https://img.icons8.com/material-outlined/20/000000/trash.png" alt="Imagem de Contato" />
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </tbody>
-</table>
+    </div>
+</div>
